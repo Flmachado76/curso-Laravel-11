@@ -8,9 +8,7 @@
 
     <a href="{{ route('users.create') }}">Novo</a>
 
-    @if (session('success'))
-        {{ session('success') }}
-    @endif
+    <x-alert/>
 
     <table>
         <thead>
@@ -25,7 +23,9 @@
                 <tr>
                     <td>{{ $user->name }}</td>
                     <td>{{ $user->email }}</td>
-                    <td>-</td>
+                    <td>
+                        <a href="{{ route('users.edit', $user->id) }}">Editar</a>
+                    </td>
                 </tr>
             @empty
                 <tr>
